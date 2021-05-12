@@ -71,7 +71,7 @@ public class QuestLog : MonoBehaviour
                 "/" + obj.MyAmount + "\n" + "Complete:" + obj.MyComplete + "\n\n"; 
         }
 
-        questDescription.text = string.Format("{0} <size=12>{1}</size>", 
+        questDescription.text = string.Format("{0} <size=16>{1}</size>", 
             quest.MyDescription, objectives);
 
     }

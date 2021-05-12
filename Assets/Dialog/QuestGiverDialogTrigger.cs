@@ -9,15 +9,17 @@ public class QuestGiverDialogTrigger : MonoBehaviour
 
     public Dialog normalDialog;
 
+    public Sprite npcImage;
+
     public Quest[] quests;
     public void TriggerDialog()
     {
         if(quests == null)
         {
-            FindObjectOfType<DialogManager>().StartDialog(normalDialog);
+            FindObjectOfType<DialogManager>().StartDialog(normalDialog, npcImage);
             return;
         }
-        FindObjectOfType<DialogManager>().StartDialog(questDialog, quests);
+        FindObjectOfType<DialogManager>().StartDialog(questDialog, npcImage, quests);
         quests = null;
     }
 

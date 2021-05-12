@@ -8,6 +8,8 @@ public class DialogManager : MonoBehaviour
 
     public Text dialogText;
 
+    public Image npcImage;
+
     private Queue<string> recenice;
 
     public Animator animator;
@@ -19,11 +21,14 @@ public class DialogManager : MonoBehaviour
         recenice = new Queue<string>();
     }
 
-    public void StartDialog(Dialog dialog, Quest[] quests = null)
+    public void StartDialog(Dialog dialog, Sprite npc, Quest[] quests = null)
     {
+        Debug.Log(npc);
         Quests = quests;
         animator.SetBool("IsOpen", true);
 
+
+        npcImage.sprite = npc;
         recenice.Clear();
 
         foreach(string recenica in dialog.recenice)
