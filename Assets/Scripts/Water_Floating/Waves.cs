@@ -34,6 +34,9 @@ public class Waves : MonoBehaviour
         MeshFilter = gameObject.AddComponent<MeshFilter>();
         MeshFilter.mesh = Mesh;
 
+        MeshCollider meshc = gameObject.AddComponent(typeof(MeshCollider)) as MeshCollider;
+        meshc.sharedMesh = Mesh;
+
         surface.BuildNavMesh();
 
     }

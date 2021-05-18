@@ -7,6 +7,10 @@ public class Player : MonoBehaviour
 
     public int goldAmount;
 
+    public float HP = 200;
+
+    public GameObject ex;
+
     private static Player instance;
 
     public static Player MyInstance
@@ -52,6 +56,18 @@ public class Player : MonoBehaviour
                 }
                 quest.Evaluate();
             }
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Cannonball")
+        {
+            this.HP -= other.GetComponent<Cannonball>().Dmg;
+            GameObject firework = Instantiate(ex, other.transform.position, Quaternion.identity);
+            firework.GetComponent<ParticleSystem>().Play();
+            Destroy(firework, 1f);
+            Destroy(other.gameObject);
         }
     }
 }

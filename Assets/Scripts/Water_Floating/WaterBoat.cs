@@ -49,7 +49,7 @@ public class WaterBoat : MonoBehaviour
         //Rotational Force
         if (Math.Abs(Rigidbody.angularVelocity.magnitude) < 0.0001 * SteerPower)
         {
-            //Debug.Log(Math.Abs(Rigidbody.angularVelocity.magnitude));
+           // Debug.Log(Math.Abs(Rigidbody.angularVelocity.magnitude));
             Rigidbody.AddForceAtPosition(steer * transform.right * SteerPower / 100f, Motor.position);
         }
 
